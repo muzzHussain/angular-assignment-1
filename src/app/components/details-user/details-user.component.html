@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="heading">
+    <!-- When hovering the left arror <fa-long-arrow-left> add this class -->
+    <!-- (click)="back()" routerLink="/users"-->
+    <a (click)="back()">
+      <span class="back-arrow">
+        <i class="fa fa-arrow-left" aria-hidden="true"></i>
+      </span>
+    </a>
+    <h3>Details: {{ user?.first_name }} {{ user?.last_name }}</h3>
+  </div>
+
+  <div class="details">
+    <p>
+      First Name: <strong>{{ user?.first_name }} </strong>
+    </p>
+    <p>
+      Last Name: <strong>{{ user?.last_name }}</strong>
+    </p>
+    <p>
+      Company Name: <strong>{{ user?.company_name }}</strong>
+    </p>
+    <p>
+      City: <strong>{{ user?.city }}</strong>
+    </p>
+    <p>
+      State: <strong>{{ user?.state }}</strong>
+    </p>
+    <p>
+      Zip: <strong>{{ user?.zip }}</strong>
+    </p>
+    <p>
+      Email: <strong>{{ user?.email }}</strong>
+    </p>
+    <p>
+      Web: <strong>{{ user?.web }}</strong>
+    </p>
+    <p>
+      Age: <strong>{{ user?.age }}</strong>
+    </p>
+  </div>
+</div>

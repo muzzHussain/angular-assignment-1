@@ -1,0 +1,148 @@
+<div class="container">
+  <div class="heading">
+    <h3>Users</h3>
+  </div>
+
+  <div class="search-user">
+    <div class="search-input-wrapper">
+      <input
+        type="text"
+        id="searchInput"
+        (input)="filterUser($event)"
+        placeholder="Search by first or last name"
+      />
+      <span class="search-icon">
+        <i class="fa fa-search"></i>
+      </span>
+    </div>
+  </div>
+
+  <div class="users-table">
+    <table>
+      <thead>
+        <tr>
+          <th (click)="sortColumn('first_name')">
+            First Name
+            <i
+              class="fa"
+              [ngClass]="{
+                'fa-sort': sortDirections.first_name === '',
+                'fa-sort-asc': sortDirections.first_name === 'asc',
+                'fa-sort-desc': sortDirections.first_name === 'desc'
+              }"
+            ></i>
+          </th>
+          <th (click)="sortColumn('last_name')">
+            Last Name
+            <i
+              class="fa"
+              [ngClass]="{
+                'fa-sort': sortDirections.last_name === '',
+                'fa-sort-asc': sortDirections.last_name === 'asc',
+                'fa-sort-desc': sortDirections.last_name === 'desc'
+              }"
+            ></i>
+          </th>
+          <th (click)="sortColumn('age')">
+            Age
+            <i
+              class="fa"
+              [ngClass]="{
+                'fa-sort': sortDirections.age === '',
+                'fa-sort-asc': sortDirections.age === 'asc',
+                'fa-sort-desc': sortDirections.age === 'desc'
+              }"
+            ></i>
+          </th>
+          <th (click)="sortColumn('email')">
+            Email
+            <i
+              class="fa"
+              [ngClass]="{
+                'fa-sort': sortDirections.email === '',
+                'fa-sort-asc': sortDirections.email === 'asc',
+                'fa-sort-desc': sortDirections.email === 'desc'
+              }"
+            ></i>
+          </th>
+          <th (click)="sortColumn('web')">
+            Website
+            <i
+              class="fa"
+              [ngClass]="{
+                'fa-sort': sortDirections.web === '',
+                'fa-sort-asc': sortDirections.web === 'asc',
+                'fa-sort-desc': sortDirections.web === 'desc'
+              }"
+            ></i>
+          </th>
+        </tr>
+      </thead>
+      <tbody id="tableBody">
+        <tr *ngFor="let user of paginatedData; let i = index">
+          <td>
+            <a
+              routerLink="/users/{{ user.id }}"
+              class="user-dir"
+              (click)="fetchData(user.id)"
+            >
+              {{ user.first_name }}</a
+            >
+          </td>
+          <td>{{ user.last_name }}</td>
+          <td>{{ user.age }}</td>
+          <td>{{ user.email }}</td>
+          <td>
+            <a [href]="user.web" target="_blank">{{ user.web }}</a>
+          </td>
+        </tr>
+        <tr *ngIf="noResultFound">
+          <td colspan="5" class="no-results">No matches found</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="pagination-control">
+    <div class="items-per-page">
+      <label for="itemsPerPage">Items Per Page</label>
+      <select
+        id="itemsPerPage"
+        [(ngModel)]="itemsPerPage"
+        (change)="onItemsPerPage()"
+      >
+        <option *ngFor="let option of itemsPerPageOptions" [value]="option">
+          {{ option }}
+        </option>
+      </select>
+    </div>
+
+    <div class="pagination-buttons">
+      <button
+        id="firstPage"
+        (click)="setDataToPage(1)"
+        [disabled]="currentPage === 1"
+      >
+        <<
+      </button>
+      <button id="prevPage" (click)="prevPage()" [disabled]="currentPage === 1">
+        <
+      </button>
+      <span>{{ currentPage }} of {{ totalPages }}</span>
+      <button
+        id="nextPage"
+        (click)="nextPage()"
+        [disabled]="currentPage === totalPages"
+      >
+        >
+      </button>
+      <button
+        id="lastPage"
+        (click)="setDataToPage(totalPages)"
+        [disabled]="currentPage === totalPages"
+      >
+        >>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,137 @@
+.heading {
+  font: bold 40px "Times New Roman", Times, serif;
+  margin: 30px 30px;
+}
+
+.search-user {
+  margin-left: 30px;
+}
+
+.search-input-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 300px;
+}
+
+.search-input-wrapper input {
+  width: 100%;
+  padding: 10px 35px 10px 10px;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.search-input-wrapper input:focus {
+  outline: none;
+  border-bottom: 1px solid #000;
+}
+
+.search-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #aaa;
+}
+
+.search-icon i {
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.users-table {
+  margin: 10px 20px 0 20px;
+  max-height: 500px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+}
+
+.users-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.users-table th,
+.users-table td {
+  padding: 10px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+.users-table i {
+  color: #bfbfbf; /*#a0a0a0;*/
+}
+
+.users-table a {
+  text-decoration: none;
+}
+
+.users-table th {
+  cursor: pointer;
+  background-color: #f4f4f4;
+}
+
+.users-table th:hover {
+  background-color: #e0e0e0;
+}
+
+.user-dir {
+  color: black;
+}
+
+.user-dir:hover {
+  color: blue;
+}
+
+.pagination-control {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  background: #fff;
+  border-top: 1px solid #ddd;
+  padding: 10px;
+  box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.items-per-page label {
+  margin-right: 5px;
+}
+
+.items-per-page select {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.items-per-page select:focus {
+  outline: none;
+}
+
+.pagination-buttons button {
+  background: #f0f0f0;
+  border: 1px solid #ccc;
+  padding: 5px 10px;
+  margin: 0 2px;
+  border-radius: 4px;
+  cursor: pointer;
+  color: #333;
+}
+
+.pagination-buttons button:disabled {
+  background-color: #e0e0e0;
+  color: #aaa;
+  cursor: not-allowed;
+}
+
+.pagination-buttons span {
+  font-weight: bold;
+  margin: 0 5px;
+}
+
+.no-results {
+  font-weight: bold;
+  color: #777;
+}
